@@ -1,4 +1,4 @@
-package no.hvl.dat110.udpexample;
+package no.hvl.dat110.udpexample.client;
 
 import java.io.*;
 import java.net.*;
@@ -19,14 +19,14 @@ public class UDPEchoClient {
 
 	public String convert(String text) {
 				
-		byte[] sendmessage = text.getBytes();
-		byte[] recvbuffer = new byte[sendmessage.length];
+		byte[] msg = text.getBytes();
+		byte[] recvbuffer = new byte[msg.length];
 		
 		String outtext = null;
 		
 		try {
 	        
-        	DatagramPacket request = new DatagramPacket(sendmessage, sendmessage.length, serveradr, port);
+        	DatagramPacket request = new DatagramPacket(msg, msg.length, serveradr, port);
         	        	
         	clientSocket.send(request);
         	
